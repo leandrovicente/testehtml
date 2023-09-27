@@ -35,28 +35,26 @@
 
 <body>
   <!-- Botão para abrir o modal -->
-  <button class="open-modal-button" onclick="abrirModal()">Abrir em Modalll</button>
+  <button class="open-modal-button" onclick="criarModal()">Criar Modal</button>
+  <button onclick="destruirModal()">Destroy Modal</button>
 
   <!-- O modal -->
   <div id="modal" class="modal">
     <div class="modal-content">
-      <iframe src="https://campari-oficial.2b.uy/?c=sj4gDhSbQBFmnZnS" width="800" height="600" frameborder="0"></iframe>
-      <button onclick="fecharModal()">Fechar Modal</button>
     </div>
   </div>
 
   <script>
-        // Função para abrir o modal
-        function abrirModal() {
-            var modal = document.getElementById('modal');
-            modal.style.display = 'block';
-        }
+    // Função para abrir o modal
+    function criarModal() {
+      const modal = `<iframe src="https://campari-oficial.2b.uy/?c=sj4gDhSbQBFmnZnS" width="800" height="600" frameborder="0" allow="geolocation"></iframe>`;
+      document.querySelector('.modal-content').innerHTML = modal;
+    }
 
-        // Função para fechar o modal
-        function fecharModal() {
-            var modal = document.getElementById('modal');
-            modal.style.display = 'none';
-        }
+    // Função para fechar o modal
+    function destruirModal() {
+      document.querySelector('.modal-content').innerHTML = '';
+    }
   </script>
 </body>
 
