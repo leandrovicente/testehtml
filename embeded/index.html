@@ -36,10 +36,10 @@
 <body>
   <!-- Botão para abrir o modal -->
   <button class="open-modal-button" onclick="criarModal()">Criar Modal</button>
-  <button onclick="destruirModal()">Destroy Modal</button>
 
   <!-- O modal -->
   <div id="modal" class="modal">
+    <button onclick="destruirModal()">Destroy Modal</button>
     <div class="modal-content">
     </div>
   </div>
@@ -47,13 +47,15 @@
   <script>
     // Função para abrir o modal
     function criarModal() {
-      const modal = `<iframe src="https://campari-oficial.2b.uy/?c=sj4gDhSbQBFmnZnS" width="800" height="600" frameborder="0" allow="geolocation"></iframe>`;
+      const modal = `<iframe src="https://testehtml-gamma.vercel.app" width="800" height="600" frameborder="0" allow="geolocation"></iframe>`;
       document.querySelector('.modal-content').innerHTML = modal;
+      document.querySelector('.modal').style.display = "block";
     }
 
     // Função para fechar o modal
     function destruirModal() {
       document.querySelector('.modal-content').innerHTML = '';
+      document.querySelector('.modal').style.display = "none";
     }
   </script>
 </body>
