@@ -8,7 +8,7 @@
 <body>
   <!-- ... (outros conteúdos) ... -->
   <h2>TESTE 16:53</h2>
-  <button class="open-modal-button" onclick="alert('dentro do modal')">Abrir Alerta</button>
+  <button class="open-modal-button" onclick="alert('dentro do modal',window.parent.location.href)">Abrir Alerta</button>
 
   <!-- Adicione um elemento para exibir o console.log quando a mensagem for recebida -->
   <div id="console-log-container"></div>
