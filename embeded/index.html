@@ -58,6 +58,17 @@
       document.querySelector('.modal').style.display = "none";
     }
   </script>
+
+  <!-- Parte do conteúdo no arquivo embeded.html (iframe) -->
+  <button id="redirecionar">Redirecionar</button>
+  
+  <script>
+    document.getElementById('redirecionar').addEventListener('click', function () {
+      // Enviar uma mensagem para a página pai incluindo o window.location
+      parent.postMessage({ message: 'MostrarConsoleLog', location: window.parent.location.href }, '*');
+    });
+  </script>
+
 </body>
 
 </html>

@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-NQGV93X3');</script>
-  <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe  src="https://www.googletagmanager.com/ns.html?id=GTM-NQGV93X3" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <h2>TESTE 16:53</h2>
-   <button class="open-modal-button" onclick="alert('dentro do modal')">Abrir Alerta</button>
 
+<head>
+  <!-- ... (cabeçalhos e metadados) ... -->
+</head>
+
+<body>
+  <!-- ... (outros conteúdos) ... -->
+  <h2>TESTE 16:53</h2>
+  <button class="open-modal-button" onclick="alert('dentro do modal')">Abrir Alerta</button>
+
+  <!-- Adicione um elemento para exibir o console.log quando a mensagem for recebida -->
+  <div id="console-log-container"></div>
+
+  <script>
+    // Adicione um ouvinte de mensagens do iframe
+    window.addEventListener('message', function (event) {
+      // Verifique a origem da mensagem para garantir a segurança (opcional)
+      // if (event.origin === 'https://dominio-do-iframe.com') {
+      if (event.data.message === 'MostrarConsoleLog') {
+        // Exibe um console.log com o window.location da página pai
+        var consoleLogContainer = document.getElementById('console-log-container');
+        consoleLogContainer.textContent = 'Console.log: Mensagem recebida do iframe';
+        console.log('Mensagem recebida do iframe');
+        console.log('Window do site pai:', event.data.location);
+      }
+    });
+  </script>
 </body>
+
 </html>
