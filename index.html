@@ -1,32 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-  <!-- ... (cabeçalhos e metadados) ... -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abrir em Modal 16:53</title>
+  <style>
+    /* Estilo para o modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+    }
+
+    /* Estilo para o botão que abre o modal */
+    .open-modal-button {
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- ... (outros conteúdos) ... -->
-  <h2>TESTE 16:53</h2>
-  <button class="open-modal-button" onclick="alert('dentro do modal',window.parent.location.href)">Abrir Alerta</button>
+  <!-- Botão para abrir o modal -->
+  <button class="open-modal-button" onclick="criarModal()">Criar Modal</button>
 
-  <!-- Adicione um elemento para exibir o console.log quando a mensagem for recebida -->
-  <div id="console-log-container"></div>
+  <!-- O modal -->
+  <div id="modal" class="modal">
+    <button onclick="destruirModal()">Destroy Modal</button>
+    <div class="modal-content">
+    </div>
+  </div>
 
   <script>
-    // Adicione um ouvinte de mensagens do iframe
-    window.addEventListener('message', function (event) {
-      // Verifique a origem da mensagem para garantir a segurança (opcional)
-      // if (event.origin === 'https://dominio-do-iframe.com') {
-      if (event.data.message === 'MostrarConsoleLog') {
-        // Exibe um console.log com o window.location da página pai
-        var consoleLogContainer = document.getElementById('console-log-container');
-        consoleLogContainer.textContent = 'Console.log: Mensagem recebida do iframe';
-        console.log('Mensagem recebida do iframe');
-        console.log('Window do site pai:', event.data.location);
-      }
+    // Função para abrir o modal
+    function criarModal() {
+      const modal = `<iframe  src="https://testehtml-gamma.vercel.app/teste" width="800" height="600" frameborder="0" allow="geolocation"></iframe>`;
+      document.querySelector('.modal-content').innerHTML = modal;
+      document.querySelector('.modal').style.display = "block";
+    }
+
+    // Função para fechar o modal
+    function destruirModal() {
+      document.querySelector('.modal-content').innerHTML = '';
+      document.querySelector('.modal').style.display = "none";
+    }
+  </script>
+
+  <!-- Parte do conteúdo no arquivo embeded.html (iframe) -->
+  <button id="redirecionar">Redirecionar</button>
+
+  <script>
+    document.getElementById('redirecionar').addEventListener('click', function () {
+      // Enviar uma mensagem para a página pai incluindo o window.location
+      parent.postMessage({ message: 'MostrarConsoleLog', location: window.parent.location.href }, '*');
     });
   </script>
+
 </body>
 
 </html>
