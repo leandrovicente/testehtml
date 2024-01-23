@@ -7,37 +7,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://lett.2buycdn.com/embed/v1/plugin.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJ0EMYSJ1Z"></script>
+  
   <script>
-    function enviarRequisicao() {
-      // Construir o objeto de requisição
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "https://obscure-train-xpr7g9r9vqc6rp9-3000.app.github.dev/enviarRequisicao", true);
-      xhr.setRequestHeader("Content-Type", "application/json");
+    window.dataLayer = window.dataLayer || [];
 
-      // Corpo da requisição
-      var requestBody = JSON.stringify({
-        "teste": 1
-      });
-
-      // Definir a função de callback
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          console.log("Requisição enviada com sucesso!");
-        }
-      };
-
-      // Enviar a requisição
-      xhr.send(requestBody);
+    function gtag() {
+      dataLayer.push(arguments);
     }
+
+    gtag('js', new Date());
+
+    // Configurar o ID de propriedade GA4 e adicionar parâmetros personalizados
+    gtag('config', 'G-LJ0EMYSJ1Z', {
+      'page_title': document.title,
+      'page_location': window.location.href,
+      'page_path': window.location.pathname,
+      'parametro_personalizado1': 'valor1',
+      'parametro_personalizado2': 'valor2'
+      // Adicione mais parâmetros conforme necessário
+    });
   </script>
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-NQGV93X3');</script>
 </head>
 
 <body>
