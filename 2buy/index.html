@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NQGV93X3');</script>
+  <!-- End Google Tag Manager -->
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQGV93X3" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+    <!-- Botão para abrir o modal -->
+    <button class="open-modal-button" onclick="criarModal()">Criar Modal</button>
+  
+    <!-- O modal -->
+    <div id="modal" class="modal">
+      <button onclick="destruirModal()">Destroy Modal</button>
+      <div class="modal-content">
+      </div>
+    </div>
+  
+    <script>
+      // Função para abrir o modal
+      function criarModal() {
+        const modal = `<iframe  src="https://testehtml-gamma.vercel.app/brasil" width="800" height="600" frameborder="0" allow="geolocation"></iframe>`;
+        document.querySelector('.modal-content').innerHTML = modal;
+        document.querySelector('.modal').style.display = "block";
+      }
+
+      // Função para fechar o modal
+      function destruirModal() {
+        document.querySelector('.modal-content').innerHTML = '';
+        document.querySelector('.modal').style.display = "none";
+      }
+    </script>
+  
+    <!-- Parte do conteúdo no arquivo embeded.html (iframe) -->
+    <button id="redirecionar">Redireciossnar</button>
+  
+    <script>
+      document.getElementById('redirecionar').addEventListener('click', function () {
+        // Enviar uma mensagem para a página pai incluindo o window.location
+        parent.postMessage({ message: 'MostrarConsoleLog', location: window.parent.location.href }, '*');
+      });
+    </script>
+  
+
+  
+</body>
+</html>
