@@ -63,10 +63,6 @@
 	function notify(event) {
 		console.log("notify :",JSON.stringify(event));
 		jQuery('#eventInfo').append('<h5>' + event.event + '</h5><pre>' + JSON.stringify(event, null, 2) + '</pre>');
-		dataLayer.push({
-			'event': 'evento_personalizado',
-			'buttonName': event.event
-		});
 	}
 </script>
 <script src="js/parent-scripts.js"></script>
