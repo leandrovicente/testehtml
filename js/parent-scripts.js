@@ -1,7 +1,3 @@
-/* Load into parent frame
- * Listens for events sent by iframes
- */
-
 (function(){
   try {
     var receiveMessage = function(event) {
