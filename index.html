@@ -1,29 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://lett.2buycdn.com/embed/v1/plugin.js"></script>
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-PT45X2P');</script>
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>MX Parent Frame</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
 
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body,
+		html {
+			background: #EFEFEF;
+			margin: 10px;
+		}
+
+		#main>.row {
+			padding-top: 20px;
+		}
+
+		iframe {
+			width: 100%;
+			min-height: 500px;
+			max-height: 700px;
+			border: none;
+			outline: none;
+			overflow: hidden;
+		}
+
+		pre {
+			padding-bottom: 24px;
+		}
+	</style>
 </head>
 
-
 <body>
-  <a href="#" data-tobuy-modal="open" data-tobuy-hash="7noYf2okS9FG1gXC">
-    Comprar
-  </a>
+		<div>
+			<h2>Event info</h2>
+			<div id="eventInfo"></div>
+		</div>
+
+			<div class="">
+				<iframe class="" src="iframe/index.html" scrolling="false"></iframe>
+			</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
+
+<script>
+	function notify(event) {
+		console.log(JSON.stringify(event));
+		jQuery('#eventInfo').append('<h5>' + event.event + '</h5><pre>' + JSON.stringify(event, null, 2) + '</pre>');
+
+	}
+</script>
+<script src="js/parent-scripts.js"></script>
 
 </html>
