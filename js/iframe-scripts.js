@@ -16,7 +16,7 @@ function post_message(mx_event, data){
 				//console.log(typeof data);
 				// Add custom data
 				if( typeof data !== 'undefined' ) {
-					message["custom_data"] = data;
+					message["eventModel"] = data;
 					//message["custom_data"].push(this);
 				}
 				message["action"] = mx_event;

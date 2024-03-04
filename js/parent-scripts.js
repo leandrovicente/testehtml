@@ -35,7 +35,7 @@
           
           var message = JSON.parse(event.data);
           
-          if(message && typeof message.event != 'undefined' && message.event.indexOf('custom.postMessage') >= 0) {
+          if(message && typeof message.event != 'undefined' && message.event.indexOf('iframe') >= 0) {
             console.log('custom event: ' + "\n", message);
             if( typeof notify !== 'undefined') {
 	            notify(message);
