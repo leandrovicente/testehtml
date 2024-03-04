@@ -1,5 +1,6 @@
 function post_message(mx_event, data){
 	try {
+		console.log( 'post');
 		if(typeof parent != "undefined" && parent != window) {
 			if(typeof parent.postMessage != "undefined") {
 				var message = {};
