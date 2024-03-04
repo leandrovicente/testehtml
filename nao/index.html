@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>MX Parent Frame</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body,
+		html {
+			background: #EFEFEF;
+			margin: 10px;
+		}
+
+		#main>.row {
+			padding-top: 20px;
+		}
+
+		iframe {
+			width: 100%;
+			min-height: 500px;
+			max-height: 700px;
+			border: none;
+			outline: none;
+			overflow: hidden;
+		}
+
+		pre {
+			padding-bottom: 24px;
+		}
+	</style>
+
+</head>
+
+<body>
+		<div>
+			<h2>Event info</h2>
+			<div id="eventInfo"></div>
+		</div>
+
+			<div class="">
+				<iframe class="" src="https://nestle-health-science.2b.uy/?c=ac4sipe5zIaDFSKo" scrolling="false"></iframe>
+			</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</body>
+
+<script>
+	function notify(event) {
+		console.log("notify :",JSON.stringify(event));
+		jQuery('#eventInfo').append('<h5>' + event.event + '</h5><pre>' + JSON.stringify(event, null, 2) + '</pre>');
+	}
+</script>
+
+</html>

@@ -35,15 +35,18 @@
           
           var message = JSON.parse(event.data);
           
-          if(message && typeof message.event != 'undefined' && message.event.indexOf('iframe') >= 0) {
-            console.log('custom event: ' + "\n", message);
-            if( typeof notify !== 'undefined') {
-	            notify(message);
-            } 
-            if(dataLayer) {
+          if (
+            message &&
+            typeof message.event != "undefined" &&
+            message.origin.type.indexOf("iframe") >= 0
+          ) {
+            console.log("custom event: " + "\n", message);
+            if (typeof notify !== "undefined") {
+              notify(message);
+            }
+            if (dataLayer) {
               dataLayer.push(message);
             }
-            
           }
         }
       } catch(err) {};
